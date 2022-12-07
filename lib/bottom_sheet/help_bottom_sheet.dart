@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:oyt_front_widgets/widgets/bottom_sheet/base_bottom_sheet.dart';
+import 'package:oyt_front_widgets/bottom_sheet/base_bottom_sheet.dart';
+import 'package:oyt_front_widgets/bottom_sheet/bottom_sheet_constants.dart';
 
 class HelpBottomSheet extends StatelessWidget {
   const HelpBottomSheet({super.key, required this.text, required this.title});
   final String text;
   final String title;
 
-  static void show(BuildContext context, String text, String title) {
-    showModalBottomSheet(
+  static Future<void> show(BuildContext context, String text, String title) {
+    return showModalBottomSheet(
       context: context,
-      shape: const RoundedRectangleBorder(
-        borderRadius:
-            BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-      ),
+      shape: BottomSheetConstants.shape,
       builder: (context) => HelpBottomSheet(text: text, title: title),
     );
   }
@@ -34,10 +32,7 @@ class HelpBottomSheet extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 10),
-          Text(
-            text,
-            textAlign: TextAlign.start,
-          ),
+          Text(text, textAlign: TextAlign.start),
           SizedBox(height: 30 + MediaQuery.of(context).viewInsets.bottom),
         ],
       ),

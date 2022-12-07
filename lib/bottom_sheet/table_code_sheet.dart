@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:oyt_front_core/validators/text_form_validator.dart';
-import 'package:oyt_front_widgets/widgets/bottom_sheet/base_bottom_sheet.dart';
+import 'package:oyt_front_widgets/bottom_sheet/base_bottom_sheet.dart';
+import 'package:oyt_front_widgets/bottom_sheet/bottom_sheet_constants.dart';
 import 'package:oyt_front_widgets/widgets/custom_text_field.dart';
 
 class TableCodeBottomSheet {
@@ -10,12 +11,10 @@ class TableCodeBottomSheet {
   }) {
     final formKey = GlobalKey<FormState>();
     final controller = TextEditingController(text: '632f14f6861d4e5ee23f77b2');
+
     return showModalBottomSheet(
       isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-        borderRadius:
-            BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-      ),
+      shape: BottomSheetConstants.shape,
       context: context,
       builder: (context) {
         return BaseBottomSheet(
