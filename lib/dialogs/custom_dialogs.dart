@@ -20,7 +20,7 @@ class CustomDialogs {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const CircularProgressIndicator(),
+            const CircularProgressIndicator.adaptive(),
             const SizedBox(height: 10),
             if (message != null)
               Text(message, style: const TextStyle(fontSize: 16, color: Colors.white)),
