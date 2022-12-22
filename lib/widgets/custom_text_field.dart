@@ -17,6 +17,9 @@ class CustomTextField extends StatelessWidget {
     this.textInputAction,
     this.hintText,
     super.key,
+    this.prefixIcon,
+    this.contentPadding,
+    this.onChanged,
   });
 
   final TextEditingController controller;
@@ -29,6 +32,9 @@ class CustomTextField extends StatelessWidget {
   final int maxLines;
   final int? minLines;
   final String label;
+  final Widget? prefixIcon;
+  final void Function(String)? onChanged;
+  final EdgeInsetsGeometry? contentPadding;
   final String? hintText;
   final List<TextInputFormatter>? inputFormatters;
   final String? Function(String?)? validator;
@@ -43,6 +49,7 @@ class CustomTextField extends StatelessWidget {
       textInputAction: textInputAction,
       obscureText: obscureText,
       autofocus: autofocus,
+      onChanged: onChanged,
       maxLines: maxLines,
       minLines: minLines,
       validator: validator,
@@ -50,7 +57,9 @@ class CustomTextField extends StatelessWidget {
           InputDecoration(
             border: const OutlineInputBorder(),
             labelText: label,
+            prefixIcon: prefixIcon,
             hintText: hintText,
+            contentPadding: contentPadding,
           ),
     );
   }
