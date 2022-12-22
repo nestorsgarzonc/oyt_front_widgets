@@ -18,6 +18,8 @@ dependencies:
   lottie: ^2.0.0
   oyt_front_core:
     path: ../oyt_front_core
+  oyt_front_table:
+    path: ../oyt_front_table
 
 dev_dependencies:
   flutter_test:
