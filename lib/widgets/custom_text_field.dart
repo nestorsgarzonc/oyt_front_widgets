@@ -20,6 +20,8 @@ class CustomTextField extends StatelessWidget {
     this.prefixIcon,
     this.contentPadding,
     this.onChanged,
+    this.enabled = true,
+    this.onTap,
   });
 
   final TextEditingController controller;
@@ -29,6 +31,7 @@ class CustomTextField extends StatelessWidget {
   final TextInputAction? textInputAction;
   final bool obscureText;
   final bool autofocus;
+  final bool enabled;
   final int maxLines;
   final int? minLines;
   final String label;
@@ -38,18 +41,21 @@ class CustomTextField extends StatelessWidget {
   final String? hintText;
   final List<TextInputFormatter>? inputFormatters;
   final String? Function(String?)? validator;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
       inputFormatters: inputFormatters,
+      onTap: onTap,
       focusNode: focusNode,
       keyboardType: keyboardType,
       textInputAction: textInputAction,
       obscureText: obscureText,
       autofocus: autofocus,
       onChanged: onChanged,
+      enabled: enabled,
       maxLines: maxLines,
       minLines: minLines,
       validator: validator,

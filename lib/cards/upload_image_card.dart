@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:oyt_front_core/constants/lotti_assets.dart';
@@ -15,6 +16,8 @@ class UploadImageCard extends StatelessWidget {
     this.showLarge = false,
     this.recomendations = const [],
     this.isLoading = false,
+    this.imgBytes,
+    this.fit,
   }) : super(key: key);
 
   final String label;
@@ -25,6 +28,11 @@ class UploadImageCard extends StatelessWidget {
   final bool showLarge;
   final List<String> recomendations;
   final bool isLoading;
+  final Uint8List? imgBytes;
+  final BoxFit? fit;
+
+  bool get hasImage => url != null || imgBytes != null;
+  bool get notHasImage => !hasImage;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +54,7 @@ class UploadImageCard extends StatelessWidget {
               ),
             ],
           ),
-          child: url == null
+          child: notHasImage
               ? Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -60,7 +68,9 @@ class UploadImageCard extends StatelessWidget {
                     ),
                   ],
                 )
-              : ImageApi(url!),
+              : imgBytes != null
+                  ? Image.memory(imgBytes!, fit: fit)
+                  : ImageApi(url!, fit: fit),
         ),
         const SizedBox(width: 20),
         Column(
@@ -82,15 +92,15 @@ class UploadImageCard extends StatelessWidget {
                 ElevatedButton.icon(
                   label: isLoading
                       ? const LoadingWidget()
-                      : Text(url == null ? 'Subir $label' : 'Reemplazar $label'),
+                      : Text(notHasImage ? 'Subir $label' : 'Reemplazar $label'),
                   icon: const Icon(Icons.upload_file),
                   onPressed: isLoading
                       ? null
-                      : url == null
+                      : notHasImage
                           ? onUpload
                           : onReplace,
                 ),
-                if (url != null) ...[
+                if (hasImage) ...[
                   const SizedBox(width: 15),
                   TextButton.icon(
                     label: isLoading ? const LoadingWidget() : Text('Eliminar $label'),
