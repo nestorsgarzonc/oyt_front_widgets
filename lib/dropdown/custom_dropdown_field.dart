@@ -32,10 +32,12 @@ class CustomDropdownField<E> extends StatelessWidget {
           hintText: hintText,
         ),
         items: items
-            .map((item) => DropdownMenuItem(
-                  value: item,
-                  child: Text(itemAsString(item)),
-                ))
+            .map(
+              (item) => DropdownMenuItem(
+                value: item,
+                child: Text(itemAsString(item)),
+              ),
+            )
             .toList(),
         onChanged: (e) {
           onChanged(e);
