@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:oyt_front_core/constants/lotti_assets.dart';
+import 'package:oyt_front_core/theme/theme.dart';
 import 'package:oyt_front_widgets/image/image_api_widget.dart';
 import 'package:oyt_front_widgets/loading/loading_widget.dart';
 
@@ -106,7 +107,7 @@ class UploadImageCard extends StatelessWidget {
                     label: isLoading ? const LoadingWidget() : Text('Eliminar $label'),
                     icon: const Icon(Icons.delete),
                     onPressed: isLoading ? null : onRemove,
-                    style: TextButton.styleFrom(foregroundColor: Colors.red),
+                    style: TextButton.styleFrom(foregroundColor: CustomTheme.redColor),
                   ),
                 ]
               ],

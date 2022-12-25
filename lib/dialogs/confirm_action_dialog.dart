@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:oyt_front_core/theme/theme.dart';
+import 'package:oyt_front_widgets/dialogs/widgets/dialog_header.dart';
 
 class ConfirmActionDialog extends StatelessWidget {
   const ConfirmActionDialog({
@@ -35,17 +37,10 @@ class ConfirmActionDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Row(
-        children: [
-          Expanded(
-            child: Text(
-              title,
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-          ),
-          IconButton(onPressed: Navigator.of(context).pop, icon: const Icon(Icons.close)),
-        ],
-      ),
+      titlePadding: CustomTheme.dialogPadding.copyWith(bottom: 0),
+      contentPadding: CustomTheme.dialogPadding.copyWith(top: 0),
+      actionsPadding: CustomTheme.dialogPadding,
+      title: DialogHeader(title: title),
       actions: [
         TextButton(
           onPressed: onCancel ?? Navigator.of(context).pop,
