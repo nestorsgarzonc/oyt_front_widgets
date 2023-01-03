@@ -42,19 +42,7 @@ class UploadImageCard extends StatelessWidget {
         Container(
           width: showLarge ? 350 : 200,
           height: 200,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-            border: Border.all(color: Colors.grey.withOpacity(0.4)),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                spreadRadius: 1,
-                blurRadius: 10,
-                offset: const Offset(0, 5),
-              ),
-            ],
-          ),
+          decoration: CustomTheme.roundedBoxDecoration,
           child: notHasImage
               ? Column(
                   mainAxisAlignment: MainAxisAlignment.center,
