@@ -12,8 +12,8 @@ class UploadImageCard extends StatelessWidget {
     required this.label,
     required this.url,
     required this.onUpload,
-    required this.onRemove,
     required this.onReplace,
+    this.onRemove,
     this.showLarge = false,
     this.recomendations = const [],
     this.isLoading = false,
@@ -24,7 +24,7 @@ class UploadImageCard extends StatelessWidget {
   final String label;
   final String? url;
   final VoidCallback onUpload;
-  final VoidCallback onRemove;
+  final VoidCallback? onRemove;
   final VoidCallback onReplace;
   final bool showLarge;
   final List<String> recomendations;
@@ -89,7 +89,7 @@ class UploadImageCard extends StatelessWidget {
                           ? onUpload
                           : onReplace,
                 ),
-                if (hasImage) ...[
+                if (hasImage && onRemove != null) ...[
                   const SizedBox(width: 15),
                   TextButton.icon(
                     label: isLoading ? const LoadingWidget() : Text('Eliminar $label'),
