@@ -1,16 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:oyt_front_widgets/widgets/custom_text_field.dart';
+import 'package:oyt_front_core/extensions/date_of_time_extension.dart';
 
-class TimeTextField extends StatelessWidget {
-  TimeTextField({
-    super.key,
+class TimeTextField extends StatefulWidget {
+  const TimeTextField({
+    Key? key,
     required this.label,
     required this.onTap,
-  });
+    this.initialTime,
+  }) : super(key: key);
 
-  final controller = TextEditingController();
   final String label;
   final void Function(TimeOfDay time) onTap;
+  final TimeOfDay? initialTime;
+
+  @override
+  State<TimeTextField> createState() => _TimeTextFieldState();
+}
+
+class _TimeTextFieldState extends State<TimeTextField> {
+  final controller = TextEditingController();
+
+  @override
+  void initState() {
+    if (widget.initialTime != null) {
+      controller.text = widget.initialTime!.formated;
+    }
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +38,11 @@ class TimeTextField extends StatelessWidget {
           initialTime: const TimeOfDay(hour: 8, minute: 0),
         );
         if (res == null) return;
-        onTap(res);
-        controller.text = '${res.hour}:${res.minute < 10 ? '0${res.minute}' : res.minute}';
+        widget.onTap(res);
+        controller.text = res.formated;
       },
       child: AbsorbPointer(
-        child: CustomTextField(label: label, controller: controller),
+        child: CustomTextField(label: widget.label, controller: controller),
       ),
     );
   }
