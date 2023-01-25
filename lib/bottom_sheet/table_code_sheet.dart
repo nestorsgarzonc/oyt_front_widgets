@@ -44,7 +44,7 @@ class TableCodeBottomSheet {
                 ),
               ),
               const SizedBox(height: 10),
-              ElevatedButton(
+              FilledButton(
                 onPressed: () {
                   if (formKey.currentState!.validate()) {
                     onAccept(controller.text);

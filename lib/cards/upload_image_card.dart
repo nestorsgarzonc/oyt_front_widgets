@@ -78,7 +78,7 @@ class UploadImageCard extends StatelessWidget {
             ],
             Wrap(
               children: [
-                ElevatedButton.icon(
+                FilledButton.icon(
                   label: isLoading
                       ? const LoadingWidget()
                       : Text(notHasImage ? 'Subir $label' : 'Reemplazar $label'),

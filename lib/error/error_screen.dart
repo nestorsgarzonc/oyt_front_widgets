@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 import 'package:oyt_front_core/constants/lotti_assets.dart';
 import 'package:oyt_front_widgets/widgets/backgrounds/animated_background.dart';
-import 'package:oyt_front_widgets/widgets/buttons/custom_elevated_button.dart';
 
 class ErrorScreen extends StatelessWidget {
   const ErrorScreen({
@@ -43,7 +42,7 @@ class ErrorScreen extends StatelessWidget {
           ),
           if (GoRouter.of(context).canPop()) ...[
             const SizedBox(height: 20),
-            CustomElevatedButton(
+            FilledButton(
               onPressed: GoRouter.of(context).pop,
               child: const Text('Volver'),
             ),
