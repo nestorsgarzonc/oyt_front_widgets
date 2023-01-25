@@ -18,7 +18,7 @@ class DrawerItemCard extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 5),
       decoration: BoxDecoration(
-        color: isSelected ? Colors.deepOrange : Colors.white,
+        color: isSelected ? Theme.of(context).primaryColor : Colors.white,
         borderRadius: BorderRadius.circular(10),
         boxShadow: isSelected ? [const BoxShadow(color: Colors.black12, blurRadius: 10)] : null,
         border: isSelected ? null : Border.all(color: Colors.black12),
@@ -34,7 +34,8 @@ class DrawerItemCard extends StatelessWidget {
               children: [
                 Icon(
                   item.icon,
-                  color: isSelected ? Colors.white : Colors.deepOrange.withOpacity(0.8),
+                  color:
+                      isSelected ? Colors.white : Theme.of(context).primaryColor.withOpacity(0.8),
                 ),
                 const SizedBox(width: 10),
                 Expanded(
