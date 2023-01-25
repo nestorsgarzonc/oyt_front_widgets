@@ -19,7 +19,7 @@ class DrawerLayout extends StatelessWidget {
       children: [
         Container(
           decoration: CustomTheme.drawerBoxDecoration,
-          padding: const EdgeInsets.all(15),
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           width: drawerWidth,
           height: double.infinity,
           child: drawerChild,
