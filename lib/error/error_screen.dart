@@ -28,7 +28,7 @@ class ErrorScreen extends StatelessWidget {
           const SizedBox(height: 15),
           Text(
             '¡Oops!',
-            style: Theme.of(context).textTheme.headline4!.copyWith(
+            style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                   fontSize: 40,
@@ -38,7 +38,7 @@ class ErrorScreen extends StatelessWidget {
           const SizedBox(height: 20),
           Text(
             error,
-            style: Theme.of(context).textTheme.bodyText1?.copyWith(fontSize: 18),
+            style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 18),
           ),
           if (GoRouter.of(context).canPop()) ...[
             const SizedBox(height: 20),
