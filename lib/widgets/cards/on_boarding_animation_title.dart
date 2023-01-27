@@ -24,7 +24,7 @@ class OnboardingAnimationTitle extends StatelessWidget {
             TyperAnimatedText(
               'On Your Table',
               speed: const Duration(milliseconds: 100),
-              textStyle: Theme.of(context).textTheme.headline4?.copyWith(
+              textStyle: Theme.of(context).textTheme.headlineMedium?.copyWith(
                     fontSize: 40,
                     fontWeight: FontWeight.w900,
                     color: Theme.of(context).primaryColor,

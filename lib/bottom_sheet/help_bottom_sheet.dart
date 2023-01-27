@@ -26,7 +26,8 @@ class HelpBottomSheet extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: Theme.of(context).textTheme.headline6?.copyWith(fontWeight: FontWeight.bold),
+                style:
+                    Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
               ),
               IconButton(onPressed: Navigator.of(context).pop, icon: const Icon(Icons.close)),
             ],
