@@ -5,8 +5,9 @@ import 'package:oyt_front_core/constants/lotti_assets.dart';
 import 'package:oyt_front_core/theme/theme.dart';
 import 'package:oyt_front_widgets/image/image_api_widget.dart';
 import 'package:oyt_front_widgets/loading/loading_widget.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class UploadImageCard extends StatelessWidget {
+class UploadImageCard extends ConsumerWidget {
   const UploadImageCard({
     Key? key,
     required this.label,
@@ -36,13 +37,13 @@ class UploadImageCard extends StatelessWidget {
   bool get notHasImage => !hasImage;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Row(
       children: [
         Container(
           width: showLarge ? 350 : 200,
           height: 200,
-          decoration: CustomTheme.roundedBoxDecoration,
+          decoration: ref.watch(themeProvider.notifier).roundedBoxDecoration,
           child: notHasImage
               ? Column(
                   mainAxisAlignment: MainAxisAlignment.center,

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:oyt_front_core/theme/theme.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class DrawerLayout extends StatelessWidget {
+class DrawerLayout extends ConsumerWidget {
   const DrawerLayout({
     super.key,
     required this.drawerChild,
@@ -14,11 +15,11 @@ class DrawerLayout extends StatelessWidget {
   final double drawerWidth;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Row(
       children: [
         Container(
-          decoration: CustomTheme.drawerBoxDecoration,
+          decoration: ref.watch(themeProvider.notifier).drawerBoxDecoration,
           padding: const EdgeInsets.symmetric(horizontal: 15),
           width: drawerWidth,
           height: double.infinity,
