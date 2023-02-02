@@ -12,10 +12,14 @@ class DialogHeader extends StatelessWidget {
         Expanded(
           child: Text(
             title,
-            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
           ),
         ),
-        IconButton(onPressed: Navigator.of(context).pop, icon: const Icon(Icons.close)),
+        IconButton(
+          onPressed: Navigator.of(context).pop,
+          icon: const Icon(Icons.close),
+          color: Theme.of(context).primaryColor,
+        ),
       ],
     );
   }
