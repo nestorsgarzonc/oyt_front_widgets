@@ -7,6 +7,7 @@ class CustomTextField extends StatelessWidget {
     required this.controller,
     this.autofocus = false,
     this.obscureText = false,
+    this.onFieldSubmitted,
     this.validator,
     this.decoration,
     this.focusNode,
@@ -41,6 +42,7 @@ class CustomTextField extends StatelessWidget {
   final String? hintText;
   final List<TextInputFormatter>? inputFormatters;
   final String? Function(String?)? validator;
+  final void Function(String?)? onFieldSubmitted;
   final VoidCallback? onTap;
 
   @override
@@ -55,6 +57,7 @@ class CustomTextField extends StatelessWidget {
       obscureText: obscureText,
       autofocus: autofocus,
       onChanged: onChanged,
+      onFieldSubmitted: onFieldSubmitted,
       enabled: enabled,
       maxLines: maxLines,
       minLines: minLines,
