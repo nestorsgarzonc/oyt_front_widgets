@@ -5,6 +5,7 @@ class CustomSnackbar {
     return ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(message),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         behavior: SnackBarBehavior.floating,
       ),
     );
