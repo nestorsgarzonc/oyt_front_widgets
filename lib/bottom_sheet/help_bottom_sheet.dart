@@ -18,20 +18,10 @@ class HelpBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseBottomSheet(
+      title: title,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                title,
-                style:
-                    Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
-              ),
-              IconButton(onPressed: Navigator.of(context).pop, icon: const Icon(Icons.close)),
-            ],
-          ),
           const SizedBox(height: 10),
           Text(text, textAlign: TextAlign.start),
           SizedBox(height: 30 + MediaQuery.of(context).viewInsets.bottom),

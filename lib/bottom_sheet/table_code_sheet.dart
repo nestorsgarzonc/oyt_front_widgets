@@ -18,22 +18,10 @@ class TableCodeBottomSheet {
       context: context,
       builder: (context) {
         return BaseBottomSheet(
+          title: 'Ingresa el codigo de tu mesa',
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    'Ingresa el codigo de tu mesa',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-                  ),
-                  IconButton(
-                    onPressed: Navigator.of(context).pop,
-                    icon: const Icon(Icons.close),
-                  ),
-                ],
-              ),
               const SizedBox(height: 10),
               Form(
                 key: formKey,
