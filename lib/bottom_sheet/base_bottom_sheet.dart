@@ -17,7 +17,7 @@ class BaseBottomSheet extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          if (title != null)
+          if (title != null) ...[
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -30,6 +30,8 @@ class BaseBottomSheet extends StatelessWidget {
                 IconButton(onPressed: Navigator.of(context).pop, icon: const Icon(Icons.close))
               ],
             ),
+            const Divider(),
+          ],
           Flexible(child: SingleChildScrollView(child: child)),
         ],
       ),
